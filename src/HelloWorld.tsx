@@ -1,4 +1,4 @@
-import { spring } from "remotion";
+// import { spring } from "remotion";
 // import {
 //   AbsoluteFill,
 //   interpolate,
@@ -7,12 +7,12 @@ import { spring } from "remotion";
 //   useVideoConfig,
 //   Audio,
 // } from "remotion";
-import { Logo } from "./HelloWorld/Logo";
-import { Subtitle } from "./HelloWorld/Subtitle";
-import { Title } from "./HelloWorld/Title";
-import { Box } from "./HelloWorld/Box";
-import { Empty } from "./HelloWorld/Empty";
-import { Donut } from "./HelloWorld/Donut";
+// import { Logo } from "./HelloWorld/Logo";
+// import { Subtitle } from "./HelloWorld/Subtitle";
+// import { Title } from "./HelloWorld/Title";
+// import { Box } from "./HelloWorld/Box";
+// import { Empty } from "./HelloWorld/Empty";
+// import { Donut } from "./HelloWorld/Donut";
 import { CityWithCar } from "./HelloWorld/CityWithCar";
 import { HospitalWithAmbulance } from "./HelloWorld/HospitalWithAmbulance";
 import { MountainWithBirds } from "./HelloWorld/MountainWithBirds";
@@ -21,22 +21,22 @@ import { FlowersWithButterfly } from "./HelloWorld/FlowersWithButterfly";
 import { z } from "zod";
 import { zColor } from "@remotion/zod-types";
 import {
-  useCurrentFrame,
+  // useCurrentFrame,
   AbsoluteFill,
-  interpolate,
-  interpolateColors, // Add this line
+  // interpolate,
+  // interpolateColors, // Add this line
   Sequence,
   Audio,
-  useVideoConfig,
+  // useVideoConfig,
 } from "remotion";
-import { FONT_FAMILY } from "./HelloWorld/constants";
+// import { FONT_FAMILY } from "./HelloWorld/constants";
 
-import cloud from "./assets/cloud.png";
-import sun from "./assets/sun.png";
-import cow from "./assets/cow.png";
-import mountain from "./assets/mountain.png";
-import aeroplane from "./assets/aeroplane.png";
-import birds from "./assets/birds.gif";
+// import cloud from "./assets/cloud.png";
+// import sun from "./assets/sun.png";
+// import cow from "./assets/cow.png";
+// import mountain from "./assets/mountain.png";
+// import aeroplane from "./assets/aeroplane.png";
+// import birds from "./assets/birds.gif";
 
 import music from "./assets/music2.mp3";
 
@@ -509,8 +509,8 @@ export const HelloWorld: React.FC<z.infer<typeof myCompSchema>> = ({
   titleText4: propFour,
   titleColor: propFive,
 }) => {
-  const frame = useCurrentFrame();
-  const { durationInFrames } = useVideoConfig();
+  // const frame = useCurrentFrame();
+  // const { durationInFrames } = useVideoConfig();
 
   return (
     <AbsoluteFill style={{ backgroundColor: "#FFFFFF" }}>

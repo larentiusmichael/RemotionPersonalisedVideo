@@ -1,5 +1,4 @@
 import React from "react";
-import { useVideoConfig, useCurrentFrame } from "remotion";
 import useVoiceRSSTTS from "./TextToSpeech";
 
 export const Empty: React.FC<{
@@ -7,8 +6,8 @@ export const Empty: React.FC<{
   titleText2?: string | null;
   titleColor: string;
 }> = ({ titleText1, titleText2 = null, titleColor }) => {
-  const videoConfig = useVideoConfig();
-  const frame = useCurrentFrame();
+  // const videoConfig = useVideoConfig();
+  // const frame = useCurrentFrame();
 
   // Concatenate titleText1 and titleText2
   const fullText = titleText1 + (titleText2 ? ` ${titleText2}` : "");

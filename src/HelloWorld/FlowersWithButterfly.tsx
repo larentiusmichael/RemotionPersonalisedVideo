@@ -1,5 +1,5 @@
 import React from "react";
-import { spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { useCurrentFrame, useVideoConfig } from "remotion";
 import { FONT_FAMILY } from "./constants";
 import useVoiceRSSTTS from "./TextToSpeech";
 
@@ -106,14 +106,14 @@ const greetingTextStyle: React.CSSProperties = {
   animationDelay: "1s",
 };
 
-const titleText3Style: React.CSSProperties = {
-  ...greetingTextStyle,
-  top: "200px",
-  color: "#374151",
-  fontSize: "64px",
-  fontWeight: "normal",
-  animationDelay: "1.2s",
-};
+// const titleText3Style: React.CSSProperties = {
+//   ...greetingTextStyle,
+//   top: "200px",
+//   color: "#374151",
+//   fontSize: "64px",
+//   fontWeight: "normal",
+//   animationDelay: "1.2s",
+// };
 
 // Style for the red line below titleText3 with rounded edges and swipe-in animation
 const redLineStyle: React.CSSProperties = {

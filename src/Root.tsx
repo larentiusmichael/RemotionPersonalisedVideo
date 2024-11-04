@@ -1,6 +1,7 @@
 import { Composition } from "remotion";
 import { HelloWorld, myCompSchema } from "./HelloWorld";
-import { Logo, myCompSchema2 } from "./HelloWorld/Logo";
+// import { Logo, myCompSchema2 } from "./HelloWorld/Logo";
+// import { HelloWorld } from "./HelloWorld";
 
 import { Player } from "@remotion/player";
 
@@ -23,28 +24,28 @@ import { Player } from "@remotion/player";
 // export const RemotionRoot: React.FC = () => {
 //   return (
 //     <>
-//       <Composition
-//         id="HelloWorld"
-//         component={HelloWorld}
-//         durationInFrames={600}
-//         fps={30}
-//         width={1920}
-//         height={1080}
-//         schema={myCompSchema}
-//         defaultProps={{
-//           // Pass the extracted query params to the title text in uppercase
-//           titleText1: queryParams.username,
-//           titleText2: queryParams.monthYear,
-//           titleText3: queryParams.totalAmount,
-//           titleText4: queryParams.dueDate,
-//           titleColor: "#000000",
-//         }}
-//       />
+// <Composition
+//   id="HelloWorld"
+//   component={HelloWorld}
+//   durationInFrames={600}
+//   fps={30}
+//   width={1920}
+//   height={1080}
+//   schema={myCompSchema}
+//   defaultProps={{
+//     // Pass the extracted query params to the title text in uppercase
+//     titleText1: queryParams.username,
+//     titleText2: queryParams.monthYear,
+//     titleText3: queryParams.totalAmount,
+//     titleText4: queryParams.dueDate,
+//     titleColor: "#000000",
+//   }}
+// />
 //     </>
 //   );
 // };
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 // Function to get a query parameter from the URL
 function getQueryParam(key: string, defaultValue: string): string {
@@ -72,7 +73,7 @@ export const RemotionRoot: React.FC = () => {
   return (
     <>
       {/* Assuming Player and HelloWorld are defined elsewhere */}
-      <Player
+      {/* <Player
         component={HelloWorld} // Directly pass the component
         durationInFrames={750}
         compositionWidth={1920}
@@ -94,6 +95,26 @@ export const RemotionRoot: React.FC = () => {
           width: "100vw",
           height: "100vh",
           zIndex: 9999,
+        }}
+      /> */}
+      <Composition
+        id="HelloWorld"
+        component={HelloWorld}
+        durationInFrames={750}
+        fps={30}
+        width={1920}
+        height={1080}
+        // compositionWidth={1920}
+        // compositionHeight={1080}
+
+        schema={myCompSchema}
+        defaultProps={{
+          // Pass the extracted query params to the title text in uppercase
+          titleText1: queryParams.username,
+          titleText2: queryParams.monthYear,
+          titleText3: queryParams.totalAmount,
+          titleText4: queryParams.dueDate,
+          titleColor: "#ffffff",
         }}
       />
     </>
