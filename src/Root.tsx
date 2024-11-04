@@ -2,43 +2,98 @@ import { Composition } from "remotion";
 import { HelloWorld, myCompSchema } from "./HelloWorld";
 import { Logo, myCompSchema2 } from "./HelloWorld/Logo";
 
+import { Player } from "@remotion/player";
+
 // Each <Composition> is an entry in the sidebar!
+
+// // Function to get a query parameter from the URL
+// function getQueryParam(key: string, defaultValue: string): string {
+//   const urlParams = new URLSearchParams(window.location.search);
+//   return urlParams.get(key) || defaultValue;
+// }
+
+// // Store the query parameters in memory, converting values to uppercase
+// const queryParams = {
+//   username: getQueryParam("username", "new user").toUpperCase(),
+//   monthYear: getQueryParam("monthYear", "January 2024").toUpperCase(),
+//   totalAmount: getQueryParam("totalAmount", "0.00").toUpperCase(),
+//   dueDate: getQueryParam("dueDate", "December 31, 2023").toUpperCase(),
+// };
+
+// export const RemotionRoot: React.FC = () => {
+//   return (
+//     <>
+//       <Composition
+//         id="HelloWorld"
+//         component={HelloWorld}
+//         durationInFrames={600}
+//         fps={30}
+//         width={1920}
+//         height={1080}
+//         schema={myCompSchema}
+//         defaultProps={{
+//           // Pass the extracted query params to the title text in uppercase
+//           titleText1: queryParams.username,
+//           titleText2: queryParams.monthYear,
+//           titleText3: queryParams.totalAmount,
+//           titleText4: queryParams.dueDate,
+//           titleColor: "#000000",
+//         }}
+//       />
+//     </>
+//   );
+// };
+
+import React, { useState, useEffect } from "react";
+
+// Function to get a query parameter from the URL
+function getQueryParam(key: string, defaultValue: string): string {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(key) || defaultValue;
+}
+
+// Store the query parameters in memory, converting values to uppercase
+const queryParams = {
+  username: getQueryParam("username", "new user"),
+  monthYear: getQueryParam("monthYear", "January 2024"),
+  totalAmount: getQueryParam("totalAmount", "0.00"),
+  dueDate: getQueryParam("dueDate", "December 31, 2023"),
+};
+
+// // Store the query parameters in memory, converting values to uppercase
+// const queryParams = {
+//   username: getQueryParam("username", "new user").toUpperCase(),
+//   monthYear: getQueryParam("monthYear", "January 2024").toUpperCase(),
+//   totalAmount: getQueryParam("totalAmount", "0.00").toUpperCase(),
+//   dueDate: getQueryParam("dueDate", "December 31, 2023").toUpperCase(),
+// };
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
-      <Composition
-        // You can take the "id" to render a video:
-        // npx remotion render src/index.ts <id> out/video.mp4
-        id="HelloWorld"
-        component={HelloWorld}
-        durationInFrames={150}
+      {/* Assuming Player and HelloWorld are defined elsewhere */}
+      <Player
+        component={HelloWorld} // Directly pass the component
+        durationInFrames={750}
+        compositionWidth={1920}
+        compositionHeight={1080}
         fps={30}
-        width={1920}
-        height={1080}
-        // You can override these props for each render:
-        // https://www.remotion.dev/docs/parametrized-rendering
-        schema={myCompSchema}
-        defaultProps={{
-          titleText: "Welcome to Remotion",
-          titleColor: "#000000",
-          logoColor1: "#91EAE4",
-          logoColor2: "#86A8E7",
+        inputProps={{
+          titleText1: queryParams.username,
+          titleText2: queryParams.monthYear,
+          titleText3: queryParams.totalAmount,
+          titleText4: queryParams.dueDate,
+          titleColor: "#ffffff",
         }}
-      />
-
-      {/* Mount any React component to make it show up in the sidebar and work on it individually! */}
-      <Composition
-        id="OnlyLogo"
-        component={Logo}
-        durationInFrames={150}
-        fps={30}
-        width={1920}
-        height={1080}
-        schema={myCompSchema2}
-        defaultProps={{
-          logoColor1: "#91dAE2" as const,
-          logoColor2: "#86A8E7" as const,
+        controls
+        allowFullscreen
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100vw",
+          height: "100vh",
+          zIndex: 9999,
         }}
       />
     </>
